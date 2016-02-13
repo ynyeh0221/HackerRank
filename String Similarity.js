@@ -7,9 +7,8 @@ function processData(input) {
     {
         var s=input[i].split("");
         var s2=input[i].split("");
-        var first=s[0];
         s2[0]=0;
-        var ind=s2.indexOf(first);
+        var ind=s2.indexOf(s[0]);
         var sum=0;
         while(ind!=-1)
         {
@@ -21,7 +20,7 @@ function processData(input) {
                     break;
             }
             s2[ind]=0;
-            ind=s2.indexOf(first);
+            ind=s2.indexOf(s[0]);
         }
         console.log(sum+s.length);
     }
