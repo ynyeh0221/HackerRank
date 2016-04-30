@@ -1,4 +1,7 @@
 #!/bin/python
+
+# It passes 1-10 test case, but gets timeout on 11-16
+
 from copy import deepcopy
 import sys
 import math
