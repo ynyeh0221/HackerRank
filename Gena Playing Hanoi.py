@@ -1,46 +1,45 @@
 #!/bin/python
-
-#pass 1-10 test cases, and got timeout on 11-16
-
 from copy import deepcopy
 import sys
 import math
 N = int(raw_input().strip())
 a = map(int,raw_input().strip().split(' '))
 
-disk=[[] for y in range(4)]
-ini=[[] for y in range(4)]
+end=[[] for y in range(4)] # end state
+initial=[[] for y in range(4)] # initial state
 
 for i in xrange(N-1,-1,-1):
-    disk[a[i]-1].append(i+1)
-    ini[0].append(i+1)    
-
+    end[a[i]-1].append(i+1)
+    initial[0].append(i+1)    
     
-dic={}
-ind=0
-dic[0]=ini
-ind+=1
-z=0
-visited={}
-visited[','.join(map(str,ini))]=1
-nextlevel={}
+states={} # the states to be check
+states[0]=initial
+
+visited={} # the states already visited
+visited[','.join(map(str,initial))]=1
+
+nextlevel={} # the next level states
+
 i=0
+z=0
+ind=1
 check=0
-while i<=math.pow(2,N):
+
+while i<=math.pow(2,N): # maximum steps
     for k in xrange(4):
         for j in xrange(4):
-            temp=deepcopy(dic[z])
+            temp=deepcopy(states[z])
             if len(temp[k])!=0 and j!=k:
-                move=temp[k].pop()
-                if len(temp[j])==0 or (len(temp[j])!=0 and temp[j][len(temp[j])-1]>move):
-                    temp[j].append(move)
+                move_disk=temp[k].pop()
+                if len(temp[j])==0 or (len(temp[j])!=0 and temp[j][len(temp[j])-1]>move_disk):
+                    temp[j].append(move_disk)
                     kkey=','.join(map(str,temp))
                     if kkey not in visited:
-                        dic[ind]=temp
-                        visited[kkey]=1
-                        nextlevel[ind]=1
+                        states[ind]=temp
+                        visited[kkey]=1 # don't save duplicate states
+                        nextlevel[ind]=1 # the next level states
                         ind+=1
-                        if temp==disk:
+                        if temp==end:
                             print i+1
                             check=1
                             break
@@ -48,7 +47,7 @@ while i<=math.pow(2,N):
             break
     if check==1:
         break
-    del dic[z]
+    del states[z]
     z+=1
     if z in nextlevel:
         nextlevel={}
