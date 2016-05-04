@@ -37,9 +37,9 @@ class Box
     }
     Box(const Box& B)
     {
-        l=B.l;
-        b=B.b;
-        h=B.h;
+        l=B.getLength();
+        b=B.getBreadth();
+        h=B.getHeight();
         BoxesCreated++;
     }
     ~Box()
