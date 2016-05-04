@@ -58,13 +58,13 @@ class Box
     }
 
 };
-    ostream& operator<<(ostream& out, Box B)
-    {
-        int l=B.getLength();
-        int b=B.getBreadth();
-        int h=B.getHeight();
-        return out<<l<<' '<<b<<' '<<h;
-    }
+ostream& operator<<(ostream& out, Box B)
+{
+    int l=B.getLength();
+    int b=B.getBreadth();
+    int h=B.getHeight();
+    return out<<l<<' '<<b<<' '<<h;
+}
 // The class should have the following functions : 
 
 // Constructors: 
