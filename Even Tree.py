@@ -13,7 +13,6 @@ N=int(s[0])
 M=int(s[1])
 adj=[[0 for i in range(N)] for j in range(N)]
 level=[0 for i in range(N)]
-parent=[0 for i in range(N)]
 num_of_child=[1 for i in range(N)]
 visit=[False for i in range(N)]
 Q=[root]
