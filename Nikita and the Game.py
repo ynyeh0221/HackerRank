@@ -4,12 +4,12 @@
 def helper(num):
     if len(num) == 1:
         return 0
-    flag = 0
+    has_ans = False
     for i in xrange(len(num)):
         if num[:i] and num[i:] and sum(num[:i]) == sum(num[i:]):
-            flag = 1
+            has_ans = True
             return max(helper(num[:i]), helper(num[i:])) + 1
-    if flag == 0:
+    if has_ans == False:
         return 0
             
 T = int(raw_input())
