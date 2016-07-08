@@ -30,5 +30,4 @@ for t in xrange(T):
     res = []
     visited = [False for i in xrange(N)]
     DFS([], visited, res)
-    temp = sum(res)/float(len(res))
-    print "%.2f" % temp
+    print "%.2f" % (sum(res)/float(len(res)))
