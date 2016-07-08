@@ -1,34 +1,24 @@
 # Enter your code here. Read input from STDIN. Print output to STDOUT
 import sys
-
 def delta(i, j, x, y):
     if i == x:
         if j + 1 == y:
             if board[i][j] == 'R':
                 return 0
-            else:
-                return 1
         else:
             if board[i][j] == 'L':
                 return 0
-            else:
-                return 1
+        return 1
     else:
         if i + 1 == x:
             if board[i][j] == 'D':
                 return 0
-            else:
-                return 1
         else:
             if board[i][j] == 'U':
                 return 0
-            else:
-                return 1
+        return 1
             
-s = raw_input().split(' ')
-N = int(s[0])
-M = int(s[1])
-K = int(s[2])
+[N, M, K] = map(int, raw_input().split(' '))
 x, y = 0, 0
 board = []
 for i in xrange(N):
