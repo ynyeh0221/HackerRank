@@ -31,18 +31,19 @@ else:
             break
     """
     i=0
-    while(k-change>0):
-        if i<=n/2:
-            if number[i]!='9':
-                number[i]='9'
-                number[n-1-i]='9'
-                if i in cpos:
-                    change+=1
-                else:
-                    change+=2
-            i+=1
-        else:
-            break
+    if k>1 :
+        while(k-change>0):
+            if i<=n/2:
+                if number[i]!='9':
+                    number[i]='9'
+                    number[n-1-i]='9'
+                    if i in cpos:
+                        change+=1
+                    else:
+                        change+=2
+                i+=1
+            else:
+                break
     if n%2==1 and k-change>0:
         number[n/2+1]='9'
         change+=1
