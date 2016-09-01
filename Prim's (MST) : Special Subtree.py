@@ -6,10 +6,7 @@ weight_of_mst = 0
 for i in xrange(1, N+1):
     edges[i] = []
 for m in xrange(M):
-    s=raw_input().split(' ')
-    x=int(s[0])
-    y=int(s[1])
-    r=int(s[2])
+    [x, y, r] = map(int, raw_input().split(' '))
     edges[x] += [[y,r]]
     edges[y] += [[x,r]]
 start = int(raw_input())
