@@ -13,7 +13,7 @@ for i in s:
         C += 1
 res = 0
 if A != n or C != n or G != n or T != n:
-    res = length + 1
+    res = length
     l = 0
     for r in xrange(length):
         if s[r] == 'A':
