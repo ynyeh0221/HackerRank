@@ -3,9 +3,7 @@ N = int(raw_input())
 for nn in xrange(N):
     n = int(raw_input())
     A = map(int, raw_input().split())
-    minn = sys.maxint
-    for i in A:
-        minn = min(minn, i)
+    minn = min(A)
     res = sys.maxint
     for i in xrange(-5, 1):
         temp = 0
