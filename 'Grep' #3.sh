@@ -1,1 +1,0 @@
-grep -v -i "that"
